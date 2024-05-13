@@ -1,0 +1,56 @@
+[
+    {
+        "name": "baños",
+        "category": "bathroom",
+        "pathIcon": "../../../assets/icons/round/bathroom.svg",
+        "color": "bathroom"
+    },
+    {
+        "name": "ascensores",
+        "category": "elevator",
+        "pathIcon": "../../../assets/icons/round/elevator.svg",
+        "color": "elevator"
+    },
+    {
+        "name": "escaleras",
+        "category": "stair",
+        "pathIcon": "../../../assets/icons/round/stair.svg",
+        "color": "stair"
+    },
+    {
+        "name": "salidas de emergencia",
+        "category": "emergency",
+        "pathIcon": "../../../assets/icons/round/emergency.svg",
+        "color": "emergency"
+    },
+    {
+        "name": "aulas",
+        "category": "classroom",
+        "pathIcon": "../../../assets/icons/round/classroom.svg",
+        "color": "classroom"
+    },
+    {
+        "name": "auditorios",
+        "category": "audience",
+        "pathIcon": "../../../assets/icons/round/audience.svg",
+        "color": "audience"
+    },
+    {
+        "name": "oficinas administrativas",
+        "category": "admin-office",
+        "pathIcon": "../../../assets/icons/round/admin-office.svg",
+        "color": "admin-office"
+    },
+    {
+        "name": "oficinas docentes",
+        "category": "profe-office",
+        "pathIcon": "../../../assets/icons/round/profe-office.svg",
+        "color": "profe-office"
+    },
+    {
+        "name": "Centro de datos",
+        "category": "data-center",
+        "pathIcon": "../../../assets/icons/round/data-center.svg",
+        "color": "others"
+    }
+]

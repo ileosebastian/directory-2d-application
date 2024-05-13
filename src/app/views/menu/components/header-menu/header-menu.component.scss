@@ -1,0 +1,32 @@
+.content-title-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+  gap: 8px;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  & ion-chip {
+    margin-left: 18px;
+    --background: white;
+    --color: white;
+  }
+}
+
+.icon-option {
+  margin-right: 10px;
+}
+
+.side-menu-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: white;
+
+  margin: 5px 0;
+}
+
+.subtitle-campus-selected {
+  padding-inline: 20px;
+}

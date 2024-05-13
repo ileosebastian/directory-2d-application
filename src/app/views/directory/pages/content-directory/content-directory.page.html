@@ -1,0 +1,20 @@
+<ion-tabs (ionTabsWillChange)="onWillChanges( $event )">
+  <ion-tab-bar slot="bottom">
+
+    <ion-tab-button [tab]="PROFESSOR" class="tab-professor">
+      <ion-icon name="person-circle"></ion-icon>
+      <ion-label>Docentes</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button [tab]="PLACE" class="tab-places">
+      <ion-icon name="business"></ion-icon>
+      <ion-label>Ambientes</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button [tab]="GENERAL" class="tab-general">
+      <ion-icon name="search"></ion-icon>
+      <ion-label>General</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>

@@ -1,0 +1,58 @@
+<app-header
+  title="Búsqueda general"
+  [categoryName]="'general'"
+  colorByCategory="general"
+></app-header>
+
+<app-search-bar
+  category="general"
+  colorCategory="general"
+  [showCancelBtn]="false"
+  (emittIfNoText)="isSearching = false"
+  (isLookingFor)="isSearching = false"
+  (emmitSearchText)="listenSearchText($event)"
+></app-search-bar>
+
+<ion-content class="ion-padding-top ion-padding-bottom">
+
+  <ion-grid *ngIf="isSearching && !thereAreNotData">
+    <ion-row *ngIf="professors.length > 0">
+      <ion-col class="ion-no-padding" size-xs="12" size-sm="6" size-md="6" size-lg="4" size-xl="3"
+        *ngFor="let professor of professors">
+        
+        <app-content-card-list
+          [item]="professor"
+        ></app-content-card-list>
+
+      </ion-col>
+    </ion-row>
+    
+
+    <ion-row *ngIf="places.length > 0">
+      <ion-col class="ion-no-padding" size-xs="12" size-sm="6" size-md="6" size-lg="4" size-xl="3"
+        *ngFor="let place of places">
+        
+        <app-content-card-list
+          [item]="place"
+        ></app-content-card-list>
+
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row *ngIf="places.length === 0 && professors.length === 0">
+      <ion-col class="ion-no-padding" size-xs="12" size-sm="6" size-md="6" size-lg="4" size-xl="3"
+        *ngFor="let place of [1,1,1,1,1,1,1,1]">
+        <app-loading-card-list></app-loading-card-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <app-message-centered *ngIf="thereAreNotData && isSearching" [message]="'No se ha encontrado información en todo el campus ' + (campus | titlecase) + '...'">
+  </app-message-centered>
+
+  <app-message-centered *ngIf="!isSearching" [message]="'Busque en todo el campus ' + (campus | titlecase)">
+  </app-message-centered>
+  
+</ion-content>
+

@@ -1,0 +1,20 @@
+<ion-card mode="md" class="ion-margin">
+  <ion-card-header class="header-info">
+    <div class="header-title">
+      <ion-card-title class="title-info ion-text-wrap ion-text-capitalize">{{ place.title }}</ion-card-title>
+      <ion-avatar class="avatar-detail-card">
+        <img [src]="'../../../../assets/icons/round/' + place.category + '.svg'" />
+      </ion-avatar>
+    </div>
+    <ion-card-subtitle class="subtitle-info ion-text-wrap ion-text-uppercase">
+      {{ getNameCat( place.category ) }}
+    </ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content class="content-info">
+    <p class="ion-text-wrap"><b>Código: </b>{{ place.code }}</p>
+    <p class="ion-text-wrap"><b>Campus: </b>{{ upperCaseFirstChar( place.campus ) }}</p>
+    <p class="ion-text-wrap"><b>Facultad: </b>{{ upperCaseFirstChar( place.faculty ) }}</p>
+    <p class="ion-text-wrap"><b>Piso: </b>{{ place.floor === 1 ? 'Planta Baja' : place.floor-1 }}</p>
+  </ion-card-content>
+</ion-card>

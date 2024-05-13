@@ -1,0 +1,40 @@
+<div class="block">
+  <ion-searchbar class="searchbar-selector"
+    placeholder="Ejemplo: decanato, oficina 103, aula 205, ..." inputmode="search" type="text" [debounce]="250"
+    showCancelButton="never" (ionInput)="search( $event )">
+  </ion-searchbar>
+
+  <ion-content *ngIf="isEmptyList; else loadingList" class="content-place">
+
+    <ion-list>
+      <ion-item-group *ngFor="let entriesBy of ENTRIES | filterPointsAndCategory:searchText | keyvalue">
+        <ion-item-divider>
+          <ion-label class="ion-text-capitalize label-category">{{ entriesBy.key }}</ion-label>
+        </ion-item-divider>
+
+        <ion-item *ngFor="let entry of entriesBy.value" button (click)="selectEntry(entry)">
+          <ion-icon slot="start" [name]="entry.category"></ion-icon>
+          <ion-label class="ion-text-capitalize ion-text-wrap ion-padding-start">{{ entry.title }}</ion-label>
+        </ion-item>
+      </ion-item-group>
+
+      <ion-item-group *ngFor="let placesBy of PLACES | filterPointsAndCategory:searchText | keyvalue">
+        <ion-item-divider>
+          <ion-label class="ion-text-capitalize label-category">{{ placesBy.key }}</ion-label>
+        </ion-item-divider>
+
+        <ion-item *ngFor="let place of placesBy.value" button (click)="selectPlace(place)">
+          <ion-icon slot="start" [name]="getCorrectIconReference(place.category)"></ion-icon>
+          <ion-label class="ion-text-capitalize ion-text-wrap ion-padding-start">{{ place.title }}</ion-label>
+        </ion-item>
+      </ion-item-group>
+    </ion-list>
+
+  </ion-content>
+
+  <ng-template #loadingList>
+    <section class="center-content">
+      <ion-spinner name="crescent"></ion-spinner>
+    </section>
+  </ng-template>
+</div>

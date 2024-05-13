@@ -1,0 +1,80 @@
+.option-title {
+    font-weight: 700;
+}
+
+.message-toolbar {
+    background-color: var(--ion-toolbar-background);
+    width: 100%;
+}
+
+.message-title {
+    margin: 0;
+    padding: 16px;
+}
+
+.section-container {
+    & h4 {
+        margin-bottom: 5px;
+    }
+}
+
+.direction-camp-to-faculty {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.package-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.package-row {
+    border: 0.1px solid var(--ion-color-medium);
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+.package-container:last-child {
+    margin-bottom: 0;
+}
+
+.separte-type-container {
+    & h5 {
+        font-weight: 550;
+    }
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.title-campus {
+    font-size: 14px;
+    font-weight: 600;
+
+    margin: 10px;
+}
+
+.selector-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-faculty-selector {
+    border: 0.1px solid var(--ion-color-medium);
+}
+
+.package-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}

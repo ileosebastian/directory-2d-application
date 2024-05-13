@@ -1,0 +1,34 @@
+<app-location-selector
+  *ngIf="isOpenDialog"
+  [originItem]="originItem"
+  [destinyItem]="destinyItem"
+  [plans]="plans"
+  (emittNewTour)="generateNewTour($event)"
+  (emittCloseDialog)="isOpenDialog = false">
+</app-location-selector>
+
+<div id="playground" class="playground">
+
+  <ion-skeleton-text *ngIf="!stopLoadingMap" style="height: 10%; padding: 0px 30%;" animated></ion-skeleton-text>
+  <h6 *ngIf="stopLoadingMap">Edificio de {{ destinyItem.faculty | titlecase }}</h6>
+
+  <ion-skeleton-text *ngIf="!stopLoadingMap" class="map" animated></ion-skeleton-text>
+  <canvas #canvas id="map" class="map ion-hide" width="790" height="370" (click)="toggleFullScreenMap()"></canvas>
+
+  <ion-skeleton-text *ngIf="!stopLoadingMap" animated class="loading-options" style="margin-top: 5px;"></ion-skeleton-text>
+  <section id="playground-options" class="ion-hide ion-padding container-options">
+    <ion-button id="location-btn" (click)="isOpenDialog = true" [disabled]="isOpenDialog" size="small" color="primary">
+      <ion-icon slot="icon-only" name="locate"></ion-icon>
+    </ion-button>
+
+    <h6 id="labelfloor" class="ion-no-margin ion-no-padding"></h6>
+
+    <ion-button *ngIf="!isWebPlatform" id="fullscreen-btn" size="small" (click)="toggleFullScreenMap()" fill="solid" color="tertiary">
+      <ion-icon slot="icon-only" [name]="isFullscreen ? 'contract' : 'expand'"></ion-icon>
+    </ion-button>
+  </section>
+
+</div>
+
+<app-message-centered *ngIf="showMapError" message="Error al generar el recorrido...">
+</app-message-centered>

@@ -1,0 +1,20 @@
+<div class="center-content" style="gap: 10px;">
+  <h5>Asistente de instalación</h5>
+
+  <h6 class="ion-text-center ion-text-wrap">Escoja un paquete de datos:</h6>
+
+  <ion-radio-group #optionName value="portoviejo" style="width: inherit;">
+
+    <ion-item *ngFor="let camp of campuses" (click)="selectCampus(camp)">
+      <ion-radio [value]="camp.name" justify="space-between">
+        <ion-label class="ion-text-wrap">{{ camp.text }}</ion-label>
+      </ion-radio>
+    </ion-item>
+
+  </ion-radio-group>
+
+</div>
+
+<div class="center-options">
+  <app-modal-buttons class="modal-btns-imported" [buttonOptions]="selectionButtons"></app-modal-buttons>
+</div>

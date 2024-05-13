@@ -1,0 +1,16 @@
+<div class="center-content">
+  <h6 class="ion-text-center ion-text-wrap">
+    {{
+      cancelProgress ?
+      'Instalando el paquete del ' + (campus ? campus.text : '?' || '' | titlecase) + '...' :
+      '¡Instalación exitosa!'
+    }}
+  </h6>
+
+  <ion-progress-bar [value]="progress()"></ion-progress-bar>
+
+</div>
+
+<div class="center-options">
+  <app-modal-buttons class="modal-btns-imported" [buttonOptions]="installationButtons"></app-modal-buttons>
+</div>

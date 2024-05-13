@@ -1,0 +1,7 @@
+<div class="playground" *ngIf="!showMapError">
+  <ion-skeleton-text style="height: 10%; padding: 0px 30%;" animated></ion-skeleton-text>
+  <ion-skeleton-text class="map" animated></ion-skeleton-text>
+  <ion-skeleton-text class="loading-options" style="margin-top: 5px;" animated></ion-skeleton-text>
+</div>
+
+<app-message-centered *ngIf="showMapError" message="Error al generar el recorrido..."></app-message-centered>

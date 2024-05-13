@@ -1,0 +1,114 @@
+<ion-modal [isOpen]="isOpenModal" (willDismiss)="onWillDismiss($event)">
+  <ng-template>
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-title slot="start"><b>Opciones</b></ion-title>
+
+        <ion-buttons slot="end">
+          <ion-button (click)="cancel()" class="ion-hide-sm-down">
+            <ion-label class="ion-text-uppercase">
+              Volver
+            </ion-label>
+          </ion-button>
+
+          <ion-button (click)="cancel()" class="ion-hide-sm-up">
+            <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+
+      </ion-toolbar>
+
+      <section *ngIf="isMessageOpen" class="message-toolbar">
+        <p class="message-title ion-text-wrap ion-padding-start">{{ message }}</p>
+        <ion-progress-bar *ngIf="progress() >= 0" [color]="color" [value]="progress()"></ion-progress-bar>
+      </section>
+    </ion-header>
+
+
+    <ion-content class="ion-padding">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+
+        <section *ngIf="isAMobileDevice">
+          <ion-list class="ion-padding">
+
+            <ion-list-header>
+              <h4 class="option-title">Datos móviles</h4>
+            </ion-list-header>
+
+            <ion-item class="package-row">
+              <ion-checkbox [disabled]="isProgress" justify="space-between" color="tertiary" [checked]="useMobileData"
+                (ionChange)="changeUseMobileData($event)">
+
+                <ion-label class="ion-text-wrap">
+                  Usar datos móviles para estar conectado
+                </ion-label>
+
+              </ion-checkbox>
+            </ion-item>
+
+          </ion-list>
+        </section>
+
+        <section>
+          <ion-list class="ion-padding-start ion-padding-end ion-padding-bottom">
+
+            <ion-list-header>
+              <h4 class="option-title">Paquetes de datos</h4>
+            </ion-list-header>
+
+            <div class="package-container">
+              <div class="separte-type-container" *ngIf="campusInstalled.length > 0">
+
+                <h5>Instalados</h5>
+                <ion-item *ngFor="let camp of campusInstalled" class="package-row">
+
+                  <ion-label slot="start" class="ion-text-capitalize ion-text-wrap">{{ getCampusTextByName(camp)
+                    }}</ion-label>
+
+                  <!-- (click)="updateAllDataByCampus(camp)"> -->
+                  <ion-buttons slot="end">
+                    <ion-button color="tertiary" fill="clear" [disabled]="isProgress"
+                      (click)="manageByContextAndCampus('update', camp)">
+                      <ion-icon slot="icon-only" name="push"></ion-icon>
+                    </ion-button>
+
+                    <!-- (click)="deleteAllDataByCampus(camp)"> -->
+                    <ion-button *ngIf="campusInstalled.length > 1" color="danger" fill="clear" [disabled]="isProgress"
+                      (click)="manageByContextAndCampus('delete', camp)">
+                      <ion-icon slot="icon-only" name="trash-bin"></ion-icon>
+                    </ion-button>
+                  </ion-buttons>
+
+                </ion-item>
+
+              </div>
+
+              <div class="separte-type-container" *ngIf="campusAvaliable().length > 0">
+
+                <h5>Disponibles</h5>
+                <ion-item *ngFor="let camp of campusAvaliable()" class="package-row">
+                  <ion-label slot="start" class="ion-text-capitalize ion-text-wrap">{{ camp.text
+                    }}</ion-label>
+
+                  <ion-buttons slot="end">
+                    <!-- (click)="installAllDataByCampus(camp.name)"> -->
+                    <ion-button color="secondary" fill="clear" [disabled]="isProgress"
+                      (click)="manageByContextAndCampus('install', camp.name)">
+                      <ion-icon slot="icon-only" name="download"></ion-icon>
+                    </ion-button>
+                  </ion-buttons>
+                </ion-item>
+              </div>
+
+            </div>
+
+          </ion-list>
+        </section>
+
+      </div>
+
+    </ion-content>
+
+  </ng-template>
+</ion-modal>

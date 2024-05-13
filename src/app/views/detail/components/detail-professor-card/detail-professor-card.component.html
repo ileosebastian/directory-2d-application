@@ -1,0 +1,25 @@
+<ion-card mode="md" class="ion-margin">
+  <ion-card-header class="header-info">
+    <div class="header-title">
+      <ion-card-title class="title-info ion-text-wrap ion-text-capitalize">{{ professor.name }}</ion-card-title>
+      <ion-avatar class="avatar-detail-card">
+        <img [src]="'../../../../assets/icons/round/professor.svg'" />
+      </ion-avatar>
+    </div>
+    <ion-card-subtitle class="subtitle-info ion-text-wrap ion-text-uppercase">
+      <a class="professor-email" [href]="'mailto:' + professor.email">
+        {{ professor.email }}
+      </a>
+    </ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content class="content-info">
+    <p class="ion-text-wrap"><b>Campus: </b>{{ upperCaseFirstChar( professor.campus ) }}</p>
+    <p class="ion-text-wrap"><b>Facultad: </b>{{ upperCaseFirstChar( professor.faculty ) }}</p>
+    <p class="ion-text-wrap ion-text-capitalize"><b>Departamento: </b>{{ professor.department }}</p>
+    <p class="ion-text-wrap"><b>Dedicación: </b>{{ upperCaseFirstChar( professor.dedication ) }}</p>
+    <p class="ion-text-wrap"><b>Categoría: </b>{{ upperCaseFirstChar( professor.category ) }}</p>
+    <p class="ion-text-wrap"><b>Horario disponible: </b>{{ professor.schedule.first + ' a ' +
+      professor.schedule.second }}</p>
+  </ion-card-content>
+</ion-card>

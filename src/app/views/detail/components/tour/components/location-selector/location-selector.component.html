@@ -1,0 +1,59 @@
+<section id="dialog-location" #dialogLocation class="dialog show-dialog">
+  <section class="location-options">
+    <!-- Icon section -->
+    <div class="icons-location">
+      <ion-icon color="primary" slot="start" name="user"></ion-icon>
+      <ion-icon name="ellipsis-vertical"></ion-icon>
+      <ion-icon color="secondary" slot="start" name="location-outline"></ion-icon>
+    </div>
+
+    <!-- Input section -->
+    <div class="input-locations">
+      <!-- To select origin -->
+      <div class="chip ripple" (click)="openPlaceSelectorByRole('start')">
+        <div class="chip-location chip-start">
+          <p>Tu ubicación:</p>
+          <h5 class="ion-text-capitalize">{{ startTitle }}</h5>
+        </div>
+      </div>
+
+      <!-- To select destiny -->
+      <div class="chip ripple" (click)="openPlaceSelectorByRole('goal')">
+        <div class="chip-location chip-goal">
+          <p>Tu destino:</p>
+          <h5 class="ion-text-capitalize">{{ destinyTitle }}</h5>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Option buttons -->
+  <section class="location-btns">
+    <ion-button mode="md" color="success" (click)="generateTour()">
+      Recorrer
+    </ion-button>
+    <ion-button mode="md" color="danger" (click)="closeDialog()">
+      Cancelar
+    </ion-button>
+  </section>
+</section>
+
+
+<!-- Modal to select places -->
+<ion-modal
+  #modal
+  [isOpen]="isOpen"
+  (didDismiss)="isOpen = false"
+  [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+  <ng-template>
+    <app-place-selector
+      class="place-selector-container"
+      [plans]="plans"
+      [role]="statePlace"
+      [facultyName]="facultyName"
+      [isEmptyList]="false"
+      (emittStart)="listenStart($event)"
+      (emittGoal)="listenGoal($event)">
+    </app-place-selector>
+  </ng-template>
+</ion-modal>

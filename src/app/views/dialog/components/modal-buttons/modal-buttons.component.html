@@ -1,0 +1,10 @@
+<div class="button-options">
+
+  <ion-button *ngFor="let btn of buttonOptions" [color]="btn.color" (click)="setBehaviorByRole(btn)"
+    [disabled]="btn.disable">
+
+    <ion-label class="ion-text-uppercase">{{ btn.text }}</ion-label>
+
+  </ion-button>
+
+</div>

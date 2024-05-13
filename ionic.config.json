@@ -1,0 +1,7 @@
+{
+  "name": "directory-2d",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

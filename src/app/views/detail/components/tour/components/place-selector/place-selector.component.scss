@@ -1,0 +1,38 @@
+.searchbar-selector {
+  margin-top: 10px;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+.label-category {
+  font-weight: 600;
+}
+
+.block {
+  height: 65svh;
+}
+
+.content-place {
+  height: 100vh;
+}
+
+@media (max-height: 300px) {
+  .block {
+    height: 100svh;
+  }
+}
+
+ion-list ion-item-group:last-child {
+  padding-bottom: 20%;
+}
+
+.center-content {
+  height: 50svh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

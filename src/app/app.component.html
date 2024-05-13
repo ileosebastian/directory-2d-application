@@ -1,0 +1,32 @@
+<ion-app *ngIf="isReady; else loadingApp">
+
+  <app-side-menu *ngIf="!isFirstBoot" [settings]="settings" (emittOpenModal)="setDataOption($event)">
+  </app-side-menu>
+
+  <ion-router-outlet *ngIf="!isFirstBoot" id="main"></ion-router-outlet>
+
+  <app-data-options *ngIf="!isFirstBoot" [isOpenModal]="isOpenDataOptions" [settings]="settings"
+    (emittCloseModal)="setDataOption($event)">
+  </app-data-options>
+
+  <app-modal-container [isOpenDialog]="isFirstBoot" [status]="appInitializer.dialogState"></app-modal-container>
+
+  <!-- TOUR -->
+  <ion-modal class="detail-modal-page" [isOpen]="isActiveTour()" animated (willDismiss)="closeTour(false)">
+    <ng-template>
+      <app-detail-tour class="modal-detail-content" [id]="id" [colorCategory]="color"
+        (emittCancelation)="closeTour($event)"></app-detail-tour>
+    </ng-template>
+  </ion-modal>
+
+</ion-app>
+
+
+<ng-template #loadingApp>
+
+  <section class="loader-container">
+    <div class="loader"></div>
+    <h1>Directorio 2D</h1>
+  </section>
+
+</ng-template>

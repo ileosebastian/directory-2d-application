@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar [color]="colorByCategory" class="ion-no-border ion-no-margin">
+
+    <ion-buttons *ngIf="!isLookingFor" slot="start">
+      <ion-menu-toggle>
+        <ion-button id="open-popover">
+          <ion-icon slot="icon-only" name="options-sharp"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+
+    <ion-title *ngIf="!isLookingFor" mode="md"
+      class="title ion-text-capitalize ion-text-wrap ion-text-center ion-no-padding">
+      {{ title }}
+    </ion-title>
+   
+    <app-search-bar
+      *ngIf="isLookingFor"
+      [category]="categoryName"
+      [colorCategory]="colorByCategory"
+      [showCancelBtn]="true"
+      (emmitSearchText)="emmitSearchText.emit($event)"
+      (isLookingFor)="hideSearchBar($event)"
+    ></app-search-bar> 
+
+    <ion-buttons slot="end" *ngIf="!isLookingFor">
+      <ion-button *ngIf="categoryName !== GENERAL_SEARCH" size="large" (click)="showSeaarchBar()">
+        <ion-icon slot="icon-only" size="large" name="search-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>

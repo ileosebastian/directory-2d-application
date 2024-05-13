@@ -1,0 +1,27 @@
+<ion-segment #segmentList *ngIf="faculties.length > 0 && !showListError" value="todos" [scrollable]="true"
+  (ionChange)="onChangeSegment($event)" [color]="categoryColor">
+
+  <ion-segment-button value="todos" >
+    <ion-label class="ion-text-uppercase">Todos</ion-label>
+  </ion-segment-button>
+
+  <ion-segment-button *ngFor="let facu of faculties" [value]="facu.name">
+    <ion-label class="ion-text-uppercase">{{ facu.name }}</ion-label>
+  </ion-segment-button>
+
+</ion-segment>
+
+
+<ion-segment *ngIf="faculties.length === 0 && !showListError" [scrollable]="true">
+
+  <ion-segment-button>
+    <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+  </ion-segment-button>
+
+  <ion-segment-button *ngFor="let item of [1,1,1]">
+    <ion-label style="width: 100%;">
+      <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+    </ion-label>
+  </ion-segment-button>
+
+</ion-segment>

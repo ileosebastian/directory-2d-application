@@ -1,0 +1,20 @@
+<div class="searchbar-conatiner">
+  <ion-searchbar
+    #searchbar
+    showCancelButton="always"
+    [showCancelButton]="showCancelBtn ? 'always' : 'never'"
+    cancelButtonText="Cancelar"
+    (ionCancel)="cancelSearch()"
+
+    (ionInput)="listenNewText( $event )"
+    search-icon=""
+    
+    [placeholder]="'Buscar ...'"
+    [color]="colorCategory"
+    class="search-bar-list">
+  </ion-searchbar>
+
+  <ion-button class="search-btn" (click)="search()">
+    <ion-icon [color]="colorCategory" slot="icon-only" name="search"></ion-icon>
+  </ion-button>
+</div>

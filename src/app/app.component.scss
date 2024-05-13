@@ -1,0 +1,49 @@
+
+.card-list-title {
+    font-weight: 700;
+}
+
+.detail-modal-page::part(content) {
+    width: 100vw;
+    height: 100svh;
+}
+
+.modal-detail-content {
+    height: 100%;
+}
+
+.loader-container {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    width: calc(100px + 6%);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            farthest-side, 
+            #428BF0 95%, 
+            rgb(255 255 255 / 0%)
+        )
+        50% 1px/24px 22px no-repeat,
+        radial-gradient(
+            farthest-side,
+            rgb(255 255 255 / 0%)
+            calc(100% - 25px),
+            #006654 0
+        );
+    animation: l9 2s infinite linear;
+}
+
+@keyframes l9 {
+    to {
+        transform: rotate(1turn)
+    }
+}

@@ -1,0 +1,5 @@
+<ion-infinite-scroll threshold="20%" position="bottom" (ionInfinite)="loadingData()">
+  <ion-infinite-scroll-content *ngIf="items.length > 0" loadingSpinner="circular"
+    [loadingText]="text">
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>

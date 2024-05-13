@@ -1,0 +1,18 @@
+<ion-card class="ion-no-margin card-category" mode="ios" button="true" type="button">
+
+  <ion-item button mode="md" id="open-modal" (click)="openTour(true, item)">
+    <ion-avatar slot="start">
+      <img alt="I" [src]="'../../../../assets/icons/round/' + getImageName(item) + '.svg'" />
+    </ion-avatar>
+
+    <ion-card-header>
+      <ion-card-title class="ion-text-capitalize card-list-title">
+        {{ getTitleCard(item) }}
+      </ion-card-title>
+      <ion-card-subtitle class="ion-text-uppercase">
+        Facultad de {{ item.faculty }}
+      </ion-card-subtitle>
+    </ion-card-header>
+  </ion-item>
+
+</ion-card>

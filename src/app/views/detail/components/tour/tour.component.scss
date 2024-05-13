@@ -1,0 +1,35 @@
+#map {
+    background-color: white; // background color 
+    border: 0.8px solid black;
+}
+
+.container-options {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+}
+
+h6 {
+    display: inline;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 !important;
+}
+
+#location-btn {
+    & ion-icon {
+        color: white;
+    }
+}
+
+#fullscreen-btn {
+    & ion-icon {
+        color: white;
+    }
+}

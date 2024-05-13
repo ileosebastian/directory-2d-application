@@ -1,0 +1,37 @@
+<ion-menu
+  #sideMenu
+  contentId="main"
+  menuId="side-menu"
+  id="side-menu-opt"
+  side="start" type="overlay"
+  swipeGesture="true"
+  (ionWillOpen)="showChanges($event)"
+>
+
+  <app-header-menu [campusTitle]="campusTitle"></app-header-menu>
+
+  <ion-content class="ion-padding">
+    <ion-list mode="ios" class="side-bar-menu-content">
+
+      <ion-menu-toggle (click)="setHandlerPicker(true)">
+        <ion-item button detail="true">
+          <ion-icon id="university-opt" [classList]="'icon-option'" slot="start" class="ion-no-margin"></ion-icon>
+          <ion-label class="ion-text-wrap">Seleccionar Campus</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-picker [isOpen]="isPickerOpen" [columns]="pickerColumns" [buttons]="pickerButtons" (didDismiss)="setHandlerPicker(false)"></ion-picker>
+
+      <ion-menu-toggle (click)="openOptions()">
+        <ion-item button detail="true" id="open-modal">
+          <ion-icon id="data-opt" [classList]="'icon-option'" name="settings-sharp" slot="start" class="ion-no-margin"></ion-icon>
+          <ion-label>Opciones</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+    </ion-list>
+  </ion-content>
+
+  <app-footer-side-menu></app-footer-side-menu>
+
+</ion-menu>

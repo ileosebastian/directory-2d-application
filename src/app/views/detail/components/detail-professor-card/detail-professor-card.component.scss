@@ -1,0 +1,17 @@
+@media ((height <= 450px) and (811px <= width <= 890px)) {
+    .professor-email {
+        font-size: 11px;
+    }
+}
+
+@media ((height <= 450px) and (761px <= width <= 810px)) {
+    .professor-email {
+        font-size: 10px;
+    }
+}
+
+@media ((height <= 450px) and (width <= 760px)) {
+    .professor-email {
+        font-size: 12px;
+    }
+}

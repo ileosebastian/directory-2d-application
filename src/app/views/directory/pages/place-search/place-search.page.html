@@ -1,0 +1,52 @@
+<app-header [title]="'Buscar ' + getNameByCat(category)" [categoryName]="category"
+  [colorByCategory]="category" (emmitSearchText)="listenSearchText( $event )" (emmitCancelEvent)="cancelSearch( $event )">
+</app-header>
+
+
+<app-faculty-list [categoryColor]="category" (emittFacultyName)="listenFacuName( $event )">
+</app-faculty-list>
+
+
+<ion-content class="ion-padding-top ion-padding-bottom">
+
+  <ion-grid *ngIf="!thereAreNotData">
+    <ion-row *ngIf="places.length > 0">
+      <ion-col class="ion-no-padding" size-xs="12" size-sm="6" size-md="6" size-lg="4" size-xl="3"
+        *ngFor="let place of places">
+        
+        <app-content-card-list
+          [item]="place"
+        ></app-content-card-list>
+
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row *ngIf="places.length === 0">
+      <ion-col class="ion-no-padding" size-xs="12" size-sm="6" size-md="6" size-lg="4" size-xl="3"
+        *ngFor="let place of [1,1,1,1,1,1,1,1]">
+        <app-loading-card-list></app-loading-card-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <app-message-centered *ngIf="thereAreNotData" message="No se encontraron ambientes...">
+  </app-message-centered>
+
+
+  <app-inifinite-scroll-item-list
+    typeItem="place"
+    text="Cargando nuevos ambientes..."
+    [campus]="campus"
+    [faculty]="faculty"
+    [isCampus]="isCampus"
+    [isSearching]="isSearching"
+    [items]="places"
+    [category]="category"
+    (emittNewPlaces)="places= $event"
+  ></app-inifinite-scroll-item-list>
+
+</ion-content>
+
+<app-filter-places-fab [colorByPlace]="category"></app-filter-places-fab>

@@ -1,0 +1,81 @@
+<ion-grid class="container-app">
+  <ion-row class="detail-content">
+
+    <!-- TOUR -->
+    <ion-col id="header-map" size-xl="9" size-lg="9" size-md="8" size-sm="8" size-xs="12">
+      <app-tour
+        *ngIf="place"
+        [destinyItem]="place"
+        (emittNewDestinyItem)="showNewDetailTour($event)">
+      </app-tour>
+      <app-load-tour *ngIf="!(place)" [showMapError]="showMapError"></app-load-tour>
+    </ion-col>
+
+
+    <!-- MORE INFORMATION -->
+    <ion-col id="content-directory" size-xl="3" size-lg="3" size-md="4" size-sm="4" size-xs="12" class="ion-no-padding">
+
+      <ion-content class="content-cards ion-padding-bottom">
+        <div *ngIf="!showNotFoundError">
+          <ion-header mode="md" class="header-cards ion-no-border">
+            <ion-toolbar [color]="getCorrectReference(colorCategory)">
+              <ion-title class="ion-text-center ion-text-capitalize ion-no-padding title">
+                mas información
+              </ion-title>
+            </ion-toolbar>
+          </ion-header>
+
+
+          <section [ngSwitch]="itemType">
+            <!-- FOR PROFESSORS -->
+            <div *ngSwitchCase="'professor'">
+              <app-detail-professor-card *ngIf="professor" [professor]="professor">
+              </app-detail-professor-card>
+              <section class="ion-margin-top card-detail">
+                <h5 class="ion-text-center ion-text-wrap subtitle-card">
+                  Oficina:
+                </h5>
+                <app-loading-card-detail *ngIf="!place"></app-loading-card-detail>
+                <app-detail-place-card *ngIf="place" [place]="place">
+                </app-detail-place-card>
+              </section>
+            </div>
+
+            <!-- FOR PLACES -->
+            <div *ngSwitchCase="'place'">
+              <app-detail-place-card *ngIf="place" [place]="place" >
+              </app-detail-place-card>
+
+              <section *ngIf="place.belongsProfessor" class="ion-margin-top card-detail">
+                <h5 class="ion-text-center ion-text-wrap subtitle-card">
+                  Docentes que puede encontrar:
+                </h5>
+                <app-loading-card-detail *ngIf="professors.length === 0"></app-loading-card-detail>
+                <app-detail-professor-card *ngFor="let profe of professors" [professor]="profe">
+                </app-detail-professor-card>
+              </section>
+            </div>
+
+            <div *ngSwitchDefault>
+              <app-loading-card-detail></app-loading-card-detail>
+              <app-loading-card-detail *ngIf="colorCategory === 'professors'"></app-loading-card-detail>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- IF NOT FOUND MORE INFO -->
+        <app-message-centered *ngIf="showNotFoundError" message="Error al cargar datos...">
+        </app-message-centered>
+      </ion-content>
+
+      <!-- BACK TO HOME -->
+      <ion-button [color]="getCorrectReference(colorCategory)" class="back-button" size="small" (click)="cancelModal()" expand="block">
+        <ion-icon name="arrow-back"></ion-icon>
+        <ion-label class="ion-text-uppercase">volver</ion-label>
+      </ion-button>
+
+    </ion-col>
+
+  </ion-row>
+</ion-grid>

@@ -1,0 +1,22 @@
+<ion-header mode="md">
+  <ion-toolbar color="medium">
+
+    <div class="content-title-menu">
+
+      <div>
+        <ion-title slot="start" class="side-menu-title">Directorio 2D</ion-title>
+        <ion-label class="subtitle-campus-selected ion-text-capitalize">{{ campusTitle }}</ion-label>
+      </div>
+
+      <ion-chip outline="true" mode="ios">
+        <ion-icon #iconStatus [color]="isConnected ? 'success' : 'danger'" name="ellipse"></ion-icon>
+
+        <ion-label #labelStatus id="label-status" class="ion-text-capitalize">
+          {{ isConnected ? 'conectado' : 'desconectado' }}
+        </ion-label>
+      </ion-chip>
+
+    </div>
+
+  </ion-toolbar>
+</ion-header>

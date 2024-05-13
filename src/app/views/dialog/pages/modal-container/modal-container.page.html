@@ -1,0 +1,28 @@
+<ion-modal id="modal-container" [isOpen]="isOpenDialog" [backdropDismiss]="false">
+    <ng-template>
+
+        <div [ngSwitch]="currentState()" class="center-modal">
+            <app-welcome *ngSwitchCase="'welcome'" class="center-section scale-in-ver-bottom">
+            </app-welcome>
+
+            <app-selection *ngSwitchCase="'selection'" class="center-section scale-in-ver-bottom">
+            </app-selection>
+
+            <app-installation *ngSwitchCase="'installation'" class="center-section scale-in-ver-bottom">
+            </app-installation>
+
+            <app-disconnected *ngSwitchCase="'disconnected'" class="center-section scale-in-ver-bottom">
+            </app-disconnected>
+
+            <app-database-error *ngSwitchCase="'database-error'" class="center-section scale-in-ver-bottom"></app-database-error>
+
+            <app-bootstrap-error *ngSwitchCase="'bootstrap-error'" class="center-section scale-in-ver-bottom"></app-bootstrap-error>
+
+            <app-installation-error *ngSwitchCase="'installation-error'" class="center-section scale-in-ver-bottom"></app-installation-error>
+
+            <div *ngSwitchCase="'exit-dialog'"></div>
+            <div *ngSwitchDefault>...</div>
+        </div>
+
+    </ng-template>
+</ion-modal>
