@@ -8,8 +8,7 @@ Esta versión del proyecto tiene como finalidad enseñar a la comunidad lo que s
 
 
 ## Video presentación
-<!-- <video controls src="presentation/directory-2d.mp4" title="Title" height=500></video> -->
-<!-- ![Video](./presentation/directory-2d.mp4) -->
+https://github.com/ileosebastian/directory-2d-application/assets/68453087/c0dee1f3-3a6e-45b7-ac42-65c8151e6740
 
 ## Requisitos para instalación:
 - **NodeJS** v18.18.2
