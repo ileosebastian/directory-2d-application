@@ -7,30 +7,8 @@ Aplicación móvil que muestra recorridos en un entorno 2D dentro de edificios u
 Esta versión del proyecto tiene como finalidad enseñar a la comunidad lo que se puede hacer con Angular, Ionic y el elemento canvas HTML. Siendo parte de mi proyecto de grado, se sigue arquitecturas limpias (vertical slice architecture), algoritmo A* y pasos necesarios para ejecutarlo, sin utilizar el entorno real backend de la aplicación móvil.
 
 
-## Fotos del despliegue como applicación móvil Android
-### Vistas de bienvenida a la app por primera vez
-![alt text](<photos/pagina bienvenida 1.jpeg>)
-![alt text](<photos/pagina bienvenida 2.jpeg>)
-![alt text](<photos/pagina bienvenida 3.jpeg>)
-![alt text](<photos/pagina bienvenida 4.jpeg>)
-
-### Menu lateral de opcioens
-![alt text](photos/menu.jpeg)
-
-### Vistas de búsqueda de docentes/ambientes
-![alt text](<photos/pagina busqueda 1.jpeg>)
-![alt text](<photos/pagina busqueda 3.jpeg>)
-![alt text](<photos/pagina busqueda vertical.jpeg>)
-
-### Vista de configuración (modo offline)
-![alt text](<photos/pagina opciones.jpeg>)
-
-### Vistas del recorrido 2D (Pathfinding con el algoritmo A*)
-![alt text](<photos/pagina seleccion usuario.jpeg>)
-
-### Vista de selección de ubicación
-![alt text](<photos/seleccionar ubicacion.jpeg>)
-![alt text](<photos/seleccionar ubicacion 1.jpeg>)
+## Video presentación
+<video controls src="presentation/directory-2d.mp4" title="Title" height=500></video>
 
 ## Requisitos para instalación:
 - **NodeJS** v18.18.2
