@@ -8,7 +8,8 @@ Esta versión del proyecto tiene como finalidad enseñar a la comunidad lo que s
 
 
 ## Video presentación
-<video controls src="presentation/directory-2d.mp4" title="Title" height=500></video>
+<!-- <video controls src="presentation/directory-2d.mp4" title="Title" height=500></video> -->
+<!-- ![Video](./presentation/directory-2d.mp4) -->
 
 ## Requisitos para instalación:
 - **NodeJS** v18.18.2
